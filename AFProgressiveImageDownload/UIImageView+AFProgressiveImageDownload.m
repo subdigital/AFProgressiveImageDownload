@@ -35,7 +35,12 @@
     
     __weak typeof(self) weakSelf = self;
     [self setImageWithURLRequest:imageRequest placeholderImage:self.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-        weakSelf.image = image;
+        __weak typeof(weakSelf) strongSelf = weakSelf;
+        if (!strongSelf) {
+            return;
+        }
+        
+        strongSelf.image = image;
         
         if (completionBlock) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -43,7 +48,7 @@
             });
         }
         
-        [weakSelf fetchNextImage:remainingUrls withCompletion:completionBlock];
+        [strongSelf fetchNextImage:remainingUrls withCompletion:completionBlock];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         if (completionBlock) {
             dispatch_async(dispatch_get_main_queue(), ^{
