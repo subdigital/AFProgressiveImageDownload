@@ -35,7 +35,7 @@
     
     __weak typeof(self) weakSelf = self;
     [self setImageWithURLRequest:imageRequest placeholderImage:self.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-        __weak typeof(weakSelf) strongSelf = weakSelf;
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         if (!strongSelf) {
             return;
         }
