@@ -48,8 +48,8 @@ Load it on the image view:
 
 Check out the provided sample project for a live demo.  Here's what it looks like:
 
--![Loading the first image](https://benpublic.s3.amazonaws.com/afprogressivedownload-1.png)
--![Loading the second image](https://benpublic.s3.amazonaws.com/afprogressivedownload-2.png)
+![Loading the first image](https://benpublic.s3.amazonaws.com/afprogressivedownload-1.png)
+![Loading the second image](https://benpublic.s3.amazonaws.com/afprogressivedownload-2.png)
 
 ## License
 
