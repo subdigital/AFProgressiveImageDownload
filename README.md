@@ -15,7 +15,16 @@ This leverages AFNetworking's image cache, so all you need is a set of progressi
 
 ## Installation
 
-TODO
+Install via [Cocoapods](http://cocoapods.org).  Here's a sample `Podfile`:
+
+````ruby
+platform :ios, '6.0'
+
+pod 'AFNetworking'
+pod 'AFProgressiveImageDownload'
+````
+
+Then run `pod install` to integrate it with your Xcode project.
 
 ## Usage
 
@@ -48,8 +57,7 @@ Load it on the image view:
 
 Check out the provided sample project for a live demo.  Here's what it looks like:
 
-![Loading the first image](https://benpublic.s3.amazonaws.com/afprogressivedownload-1.png) 
-![Loading the second image](https://benpublic.s3.amazonaws.com/afprogressivedownload-2.png)
+![Loading the first image](https://benpublic.s3.amazonaws.com/afprogressivedownload-1.png) ![Loading the second image](https://benpublic.s3.amazonaws.com/afprogressivedownload-2.png)
 
 It's hard to see with scaled down images, but the one on the right is retina resolution.
 
