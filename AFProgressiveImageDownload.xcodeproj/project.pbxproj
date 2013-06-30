@@ -20,7 +20,7 @@
 		B5B15667177F9EDF0029F6D4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B15666177F9EDF0029F6D4 /* ViewController.m */; };
 		B5B1566A177F9EDF0029F6D4 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5B15668177F9EDF0029F6D4 /* ViewController.xib */; };
 		B5B15672177FA4A50029F6D4 /* img-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B5B15671177FA4A50029F6D4 /* img-placeholder.png */; };
-		B5B15675177FA6400029F6D4 /* UIImageView+AFProgressiveImageDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B15674177FA6400029F6D4 /* UIImageView+AFProgressiveImageDownload.m */; };
+		B5B15678177FB5590029F6D4 /* UIImageView+AFProgressiveImageDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B15676177FB5590029F6D4 /* UIImageView+AFProgressiveImageDownload.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +42,8 @@
 		B5B15666177F9EDF0029F6D4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B5B15669177F9EDF0029F6D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		B5B15671177FA4A50029F6D4 /* img-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-placeholder.png"; sourceTree = "<group>"; };
-		B5B15673177FA6400029F6D4 /* UIImageView+AFProgressiveImageDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFProgressiveImageDownload.h"; path = "AFProgressImageDownload/AFProgressiveImageDownload/UIImageView+AFProgressiveImageDownload.h"; sourceTree = "<group>"; };
-		B5B15674177FA6400029F6D4 /* UIImageView+AFProgressiveImageDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFProgressiveImageDownload.m"; path = "AFProgressImageDownload/AFProgressiveImageDownload/UIImageView+AFProgressiveImageDownload.m"; sourceTree = "<group>"; };
+		B5B15676177FB5590029F6D4 /* UIImageView+AFProgressiveImageDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFProgressiveImageDownload.m"; sourceTree = "<group>"; };
+		B5B15677177FB5590029F6D4 /* UIImageView+AFProgressiveImageDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFProgressiveImageDownload.h"; sourceTree = "<group>"; };
 		C0748F86A3184EED84B6B600 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -103,7 +103,7 @@
 				B5B15654177F9EDF0029F6D4 /* Supporting Files */,
 			);
 			name = "Example App";
-			path = AFProgressImageDownload;
+			path = Example;
 			sourceTree = "<group>";
 		};
 		B5B15654177F9EDF0029F6D4 /* Supporting Files */ = {
@@ -124,10 +124,10 @@
 		B5B15670177F9F8F0029F6D4 /* AFProgressiveImageDownload */ = {
 			isa = PBXGroup;
 			children = (
-				B5B15673177FA6400029F6D4 /* UIImageView+AFProgressiveImageDownload.h */,
-				B5B15674177FA6400029F6D4 /* UIImageView+AFProgressiveImageDownload.m */,
+				B5B15676177FB5590029F6D4 /* UIImageView+AFProgressiveImageDownload.m */,
+				B5B15677177FB5590029F6D4 /* UIImageView+AFProgressiveImageDownload.h */,
 			);
-			name = AFProgressiveImageDownload;
+			path = AFProgressiveImageDownload;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +234,7 @@
 				B5B1565A177F9EDF0029F6D4 /* main.m in Sources */,
 				B5B1565E177F9EDF0029F6D4 /* AFAppDelegate.m in Sources */,
 				B5B15667177F9EDF0029F6D4 /* ViewController.m in Sources */,
-				B5B15675177FA6400029F6D4 /* UIImageView+AFProgressiveImageDownload.m in Sources */,
+				B5B15678177FB5590029F6D4 /* UIImageView+AFProgressiveImageDownload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,8 +321,8 @@
 			baseConfigurationReference = C0748F86A3184EED84B6B600 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AFProgressImageDownload/AFProgressiveImageDownload-Prefix.pch";
-				INFOPLIST_FILE = "AFProgressImageDownload/AFProgressiveImageDownload-Info.plist";
+				GCC_PREFIX_HEADER = "Example/AFProgressiveImageDownload-Prefix.pch";
+				INFOPLIST_FILE = "Example/AFProgressiveImageDownload-Info.plist";
 				PRODUCT_NAME = AFProgressiveImageDownload;
 				WRAPPER_EXTENSION = app;
 			};
@@ -333,8 +333,8 @@
 			baseConfigurationReference = C0748F86A3184EED84B6B600 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AFProgressImageDownload/AFProgressiveImageDownload-Prefix.pch";
-				INFOPLIST_FILE = "AFProgressImageDownload/AFProgressiveImageDownload-Info.plist";
+				GCC_PREFIX_HEADER = "Example/AFProgressiveImageDownload-Prefix.pch";
+				INFOPLIST_FILE = "Example/AFProgressiveImageDownload-Info.plist";
 				PRODUCT_NAME = AFProgressiveImageDownload;
 				WRAPPER_EXTENSION = app;
 			};
