@@ -32,14 +32,14 @@
     
     NSMutableURLRequest *imageRequest = [NSMutableURLRequest requestWithURL:imageUrl];
     [imageRequest addValue:@"image/*" forHTTPHeaderField:@"Accept"];
-
+    
     __weak typeof(self) weakSelf = self;
     [self setImageWithURLRequest:imageRequest placeholderImage:self.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         weakSelf.image = image;
         
         if (completionBlock) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                    completionBlock(imageUrl, YES, nil, [remainingUrls count] == 0);
+                completionBlock(imageUrl, YES, nil, [remainingUrls count] == 0);
             });
         }
         
