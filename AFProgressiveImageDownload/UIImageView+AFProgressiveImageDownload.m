@@ -7,7 +7,7 @@
 //
 
 #import "UIImageView+AFProgressiveImageDownload.h"
-#import "AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation UIImageView (AFProgressiveImageDownload)
 
@@ -30,28 +30,34 @@
     NSURL *imageUrl = remainingUrls[0];
     [remainingUrls removeObjectAtIndex:0];
     
-    NSURLRequest *imageRequest = [[NSURLRequest alloc] initWithURL:imageUrl];
-    AFImageRequestOperation *operation = [[AFImageRequestOperation alloc] initWithRequest:imageRequest];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, UIImage *responseImage) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (completionBlock) {
-                completionBlock(imageUrl, YES, nil, [remainingUrls count] == 0);
-            }
-            self.image = responseImage;
-        });
-
-        [self fetchNextImage:remainingUrls withCompletion:completionBlock];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (completionBlock) {
-                completionBlock(imageUrl, NO, error, [remainingUrls count] == 0);
-            }
-        });
+    NSMutableURLRequest *imageRequest = [NSMutableURLRequest requestWithURL:imageUrl];
+    [imageRequest addValue:@"image/*" forHTTPHeaderField:@"Accept"];
+    
+    __weak typeof(self) weakSelf = self;
+    [self setImageWithURLRequest:imageRequest placeholderImage:self.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (!strongSelf) {
+            return;
+        }
         
-        [self fetchNextImage:remainingUrls withCompletion:completionBlock];
+        strongSelf.image = image;
+        
+        if (completionBlock) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionBlock(imageUrl, YES, nil, [remainingUrls count] == 0);
+            });
+        }
+        
+        [strongSelf fetchNextImage:remainingUrls withCompletion:completionBlock];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        if (completionBlock) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionBlock(imageUrl, NO, error, [remainingUrls count] == 0);
+            });
+        }
+        
+        [weakSelf fetchNextImage:remainingUrls withCompletion:completionBlock];
     }];
-    [operation start];
 }
-
 
 @end
