@@ -1,9 +1,3 @@
-#
-# Be sure to run `pod spec lint AFProgressiveImageDownload.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://docs.cocoapods.org/specification.html
-#
 Pod::Spec.new do |s|
   s.name         = "AFProgressiveImageDownload"
   s.version      = "0.1"
@@ -14,7 +8,7 @@ Pod::Spec.new do |s|
   s.author       = { "Ben Scheirman" => "ben@scheirman.com" }
   s.source       = { :git => "https://github.com/subdigital/AFProgressiveImageDownload.git", :tag => "0.1" }
 
-  s.platform     = :ios, '6.0'
+  s.platform     = :ios, '5.0'
   s.source_files = 'AFProgressiveImageDownload/**/*.{h,m}'
 
   s.requires_arc = true
