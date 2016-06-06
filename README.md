@@ -15,7 +15,7 @@ This leverages AFNetworking's image cache, so all you need is a set of progressi
 
 ## Installation
 
-Install via [Cocoapods](http://cocoapods.org).  Here's a sample `Podfile`:
+Install via [CocoaPods](http://cocoapods.org).  Here's a sample `Podfile`:
 
 ````ruby
 platform :ios, '6.0'
